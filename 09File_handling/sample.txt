@@ -1,0 +1,23 @@
+### ayush Assignment 10: Splitting a Large File
+
+Write a function that splits a large file named `large.txt` into smaller files of 100 lines each.
+
+### ayush Assignment 11: Creating a Log File
+
+Write a function that creates a log file named `activity.log` and writes log messages with timestamps.
+
+### ayush Assignment 12: Binary File Operations
+
+Write a function that reads a binary file named `image.bin` and writes its contents to another binary file named `copy_image.bin`.
+
+### ayush Assignment 13: CSV File Operations
+
+Write a function that reads a CSV file named `data.csv` and prints its contents as a list of dictionaries.
+
+### ayush Assignment 14: JSON File Operations
+
+Write a function that reads a JSON file named `data.json` and prints its contents as a Python dictionary.
+
+### ayush Assignment 15: File Permission Handling
+
+Write a function that attempts to read a file named `protected.txt` and handles any permission errors gracefully by printing an error message.
