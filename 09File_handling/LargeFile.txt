@@ -1,0 +1,358 @@
+# Module: File Handling Assignments
+## Lesson: File Handling and Operations
+### Assignment 1: Reading a File
+
+Write a function that reads the contents of a file named `sample.txt` and prints each line.
+def read_file(filename):
+    with open(filename, 'r') as file:
+        for line in file:
+            print(line.strip())
+
+# Test
+# read_file('sample.txt')
+### Assignment 2: Writing to a File
+
+Write a function that writes a list of strings to a file named `output.txt`, with each string on a new line.
+def write_file(lines, filename):
+    with open(filename, 'w') as file:
+        for line in lines:
+            file.write(line + '\n')
+
+# Test
+# write_file(['Hello', 'World'], 'output.txt')
+### Assignment 3: Copying a File
+
+Write a function that copies the contents of a file named `source.txt` to a new file named `destination.txt`.
+def copy_file(source, destination):
+    with open(source, 'r') as src:
+        with open(destination, 'w') as dest:
+            dest.write(src.read())
+
+# Test
+# copy_file('source.txt', 'destination.txt')
+### Assignment 4: Appending to a File
+
+Write a function that appends a given string to the end of a file named `log.txt`.
+def append_to_file(text, filename):
+    with open(filename, 'a') as file:
+        file.write(text + '\n')
+
+# Test
+# append_to_file('This is a new log entry.', 'log.txt')
+### Assignment 5: Counting Words in a File
+
+Write a function that reads the contents of a file named `document.txt` and returns the number of words in the file.
+def count_words(filename):
+    with open(filename, 'r') as file:
+        text = file.read()
+        words = text.split()
+        return len(words)
+
+# Test
+# print(count_words('document.txt'))
+### Assignment 6: Finding and Replacing Text
+
+Write a function that finds and replaces all occurrences of a given word in a file named `data.txt` with another word.
+def find_and_replace(filename, old_word, new_word):
+    with open(filename, 'r') as file:
+        text = file.read()
+    new_text = text.replace(old_word, new_word)
+    with open(filename, 'w') as file:
+        file.write(new_text)
+
+# Test
+# find_and_replace('data.txt', 'old', 'new')
+### Assignment 7: Reading a File in Reverse
+
+Write a function that reads the contents of a file named `reverse.txt` and prints each line in reverse order.
+def read_reverse(filename):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+    for line in reversed(lines):
+        print(line.strip())
+
+# Test
+# read_reverse('reverse.txt')
+### Assignment 8: Counting Lines, Words, and Characters
+
+Write a function that reads the contents of a file named `stats.txt` and returns the number of lines, words, and characters in the file.
+def count_lwc(filename):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        words = sum(len(line.split()) for line in lines)
+        characters = sum(len(line) for line in lines)
+    return len(lines), words, characters
+
+# Test
+# print(count_lwc('stats.txt'))
+### Assignment 9: Merging Multiple Files
+
+Write a function that merges the contents of multiple files into a single file named `merged.txt`.
+def merge_files(file_list, output_file):
+    with open(output_file, 'w') as outfile:
+        for fname in file_list:
+            with open(fname, 'r') as infile:
+                outfile.write(infile.read() + '\n')
+
+# Test
+# merge_files(['file1.txt', 'file2.txt'], 'merged.txt')
+### Assignment 10: Splitting a Large File
+
+Write a function that splits a large file named `large.txt` into smaller files of 100 lines each.
+def split_file(filename, lines_per_file):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+    for i in range(0, len(lines), lines_per_file):
+        with open(f'{filename}_part{i//lines_per_file + 1}.txt', 'w') as part_file:
+            part_file.writelines(lines[i:i + lines_per_file])
+
+# Test
+# split_file('large.txt', 100)
+### Assignment 11: Creating a Log File
+
+Write a function that creates a log file named `activity.log` and writes log messages with timestamps.
+import datetime
+
+def log_message(message, filename='activity.log'):
+    timestamp = datetime.datetime.now().isoformat()
+    with open(filename, 'a') as file:
+        file.write(f'[{timestamp}] {message}\n')
+
+# Test
+# log_message('This is a log message.')
+### Assignment 12: Binary File Operations
+
+Write a function that reads a binary file named `image.bin` and writes its contents to another binary file named `copy_image.bin`.
+def copy_binary_file(source, destination):
+    with open(source, 'rb') as src:
+        with open(destination, 'wb') as dest:
+            dest.write(src.read())
+
+# Test
+# copy_binary_file('image.bin', 'copy_image.bin')
+### Assignment 13: CSV File Operations
+
+Write a function that reads a CSV file named `data.csv` and prints its contents as a list of dictionaries.
+import csv
+
+def read_csv_as_dicts(filename):
+    with open(filename, 'r') as file:
+        reader = csv.DictReader(file)
+        return list(reader)
+
+# Test
+# print(read_csv_as_dicts('data.csv'))
+### Assignment 14: JSON File Operations
+
+Write a function that reads a JSON file named `data.json` and prints its contents as a Python dictionary.
+import json
+
+def read_json(filename):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+        return data
+
+# Test
+# print(read_json('data.json'))
+### Assignment 15: File Permission Handling
+
+Write a function that attempts to read a file named `protected.txt` and handles any permission errors gracefully by printing an error message.
+def read_protected_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            print(file.read())
+    except PermissionError as e:
+        print(f"Permission error: {e}")
+
+# Test
+# read_protected_file('protected.txt')
+
+
+# Module: File Handling Assignments
+## Lesson: File Handling and Operations
+### Assignment 1: Reading a File
+
+Write a function that reads the contents of a file named `sample.txt` and prints each line.
+
+### Assignment 2: Writing to a File
+
+Write a function that writes a list of strings to a file named `output.txt`, with each string on a new line.
+
+### Assignment 3: Copying a File
+
+Write a function that copies the contents of a file named `source.txt` to a new file named `destination.txt`.
+
+### Assignment 4: Appending to a File
+
+Write a function that appends a given string to the end of a file named `log.txt`.
+
+### Assignment 5: Counting Words in a File
+
+Write a function that reads the contents of a file named `document.txt` and returns the number of words in the file.
+
+### Assignment 6: Finding and Replacing Text
+
+Write a function that finds and replaces all occurrences of a given word in a file named `data.txt` with another word.
+
+### Assignment 7: Reading a File in Reverse
+
+Write a function that reads the contents of a file named `reverse.txt` and prints each line in reverse order.
+
+### Assignment 8: Counting Lines, Words, and Characters
+
+Write a function that reads the contents of a file named `stats.txt` and returns the number of lines, words, and characters in the file.
+
+### Assignment 9: Merging Multiple Files
+
+Write a function that merges the contents of multiple files into a single file named `merged.txt`.
+
+### Assignment 10: Splitting a Large File
+
+Write a function that splits a large file named `large.txt` into smaller files of 100 lines each.
+
+### Assignment 11: Creating a Log File
+
+Write a function that creates a log file named `activity.log` and writes log messages with timestamps.
+
+### Assignment 12: Binary File Operations
+
+Write a function that reads a binary file named `image.bin` and writes its contents to another binary file named `copy_image.bin`.
+
+### Assignment 13: CSV File Operations
+
+Write a function that reads a CSV file named `data.csv` and prints its contents as a list of dictionaries.
+
+### Assignment 14: JSON File Operations
+
+Write a function that reads a JSON file named `data.json` and prints its contents as a Python dictionary.
+
+### Assignment 15: File Permission Handling
+
+Write a function that attempts to read a file named `protected.txt` and handles any permission errors gracefully by printing an error message.
+# ### Assignment 1: Reading a File
+
+# # Write a function that reads the contents of a file named `sample.txt` and prints each line.
+
+def read_file(file_name):
+    with open(file_name , 'r') as file:
+        for line in file :
+            print(line)
+
+read_file('sample.txt')
+
+
+# ### Assignment 2: Writing to a File
+
+# # Write a function that writes a list of strings to a file named `output.txt`, with each string on a new line.
+
+def write_line(file_name , lst):
+    with open(file_name , 'w') as file:
+        for item in lst:
+            file.write(item)
+
+write_line('output.txt', ['ayush', 'kale', 'burhanpur'])
+# ### Assignment 3: Copying a File
+
+# # Write a function that copies the contents of a file named `source.txt` to a new file named `destination.txt`.
+
+def read_write_file(source_file , desti_file):
+    with open(source_file , 'r') as read_file:
+        with open(desti_file , 'w') as write_file:
+            for i in read_file:
+                write_file.write(i)
+
+read_write_file('sample.txt', 'destination.txt')
+# ### Assignment 4: Appending to a File
+
+# Write a function that appends a given string to the end of a file named `log.txt`.
+def appen_file(file_name, data):
+    with open(file_name, '+a') as appendFile :
+        appendFile.write(data)
+
+appen_file('log.txt', "ayushtestingdsdsdsd")
+
+# ### Assignment 5: Counting Words in a File
+
+# Write a function that reads the contents of a file named `document.txt` and returns the number of words in the file.
+
+def read_word(fileName):
+    lst=[]
+    with open(fileName, "r") as read_file :
+        print(len(read_file.read().split()))
+
+read_word('sample.txt')
+    
+# ### Assignment 6: Finding and Replacing Text
+
+# # Write a function that finds and replaces all occurrences of a given word in a file named `data.txt` with another word.
+
+def find_and_replace(file_name , find , replace):
+    with open(file_name , 'r') as read:
+        txt = read.read()
+    nex_txt = txt.replace(find, replace)
+    with open(file_name , 'w') as write:
+        write.write(nex_txt)
+
+find_and_replace("sample.txt", "Assignment" , "ayush Assignment")
+    
+# ### Assignment 7: Reading a File in Reverse
+
+# # Write a function that reads the contents of a file named `reverse.txt` and prints each line in reverse order.]
+
+def readFileContent(fileName):
+    with open(fileName ,'r') as file:
+        lines= file.readlines()
+        for line in reversed(lines):
+            print(line)
+
+
+readFileContent('sample.txt')
+
+# ### Assignment 8: Counting Lines, Words, and Characters
+
+# # Write a function that reads the contents of a file named `stats.txt` and returns the number of lines, words, and characters in the file.
+
+
+def read_content(file_name):
+    with open(file_name, 'r') as file_read:
+       lines = file_read.readline()
+       words = sum(len(line.split()) for line in lines)
+       char =  sum(len(line) for line in lines)
+
+    return len(lines), words, char
+
+print(read_content('sample.txt'))
+# ### Assignment 9: Merging Multiple Files
+
+# Write a function that merges the contents of multiple files into a single file named `merged.txt`.
+
+def merge_multi_file(merge_file_name , file_lst):
+    with open(merge_file_name , 'w') as write_line:
+        for fname in file_lst:
+            with open (fname) as read_line:
+                for line in read_line:
+                    write_line.write(line)
+
+
+merge_multi_file('log.txt', ['destination.txt', 'sample.txt'])
+# ### Assignment 10: Splitting a Large File
+
+# Write a function that splits a large file named `large.txt` into smaller files of 100 lines each.
+
+def Splitting_Large_File(largeFileName):
+    with open(largeFileName , 'r') as file:
+        lines = file.readlines()
+        filelenth = 100
+        new_file_name = "text.txt"
+        # total_file_needed = len(lines)/100
+        for line in range(0, len(lines), filelenth):
+            with open(f"{new_file_name}_part{line//filelenth + 1}.txt" ,'w') as write_file:
+                write_file.write(lines[line:line+filelenth])
+                # print(f"{fileNo} : {fileName}")
+                # with open(fileName , 'w') as file:
+
+
+Splitting_Large_File()
+        
+
+        

@@ -1,0 +1,100 @@
+# Module: File Handling Assignments
+## Lesson: File Handling and Operations
+### Assignment 1: Reading a File
+
+Write a function that reads the contents of a file named `sample.txt` and prints each line.
+def read_file(filename):
+    with open(filename, 'r') as file:
+        for line in file:
+            print(line.strip())
+
+# Test
+# read_file('sample.txt')
+### Assignment 2: Writing to a File
+
+Write a function that writes a list of strings to a file named `output.txt`, with each string on a new line.
+def write_file(lines, filename):
+    with open(filename, 'w') as file:
+        for line in lines:
+            file.write(line + '\n')
+
+# Test
+# write_file(['Hello', 'World'], 'output.txt')
+### Assignment 3: Copying a File
+
+Write a function that copies the contents of a file named `source.txt` to a new file named `destination.txt`.
+def copy_file(source, destination):
+    with open(source, 'r') as src:
+        with open(destination, 'w') as dest:
+            dest.write(src.read())
+
+# Test
+# copy_file('source.txt', 'destination.txt')
+### Assignment 4: Appending to a File
+
+Write a function that appends a given string to the end of a file named `log.txt`.
+def append_to_file(text, filename):
+    with open(filename, 'a') as file:
+        file.write(text + '\n')
+
+# Test
+# append_to_file('This is a new log entry.', 'log.txt')
+### Assignment 5: Counting Words in a File
+
+Write a function that reads the contents of a file named `document.txt` and returns the number of words in the file.
+def count_words(filename):
+    with open(filename, 'r') as file:
+        text = file.read()
+        words = text.split()
+        return len(words)
+
+# Test
+# print(count_words('document.txt'))
+### Assignment 6: Finding and Replacing Text
+
+Write a function that finds and replaces all occurrences of a given word in a file named `data.txt` with another word.
+def find_and_replace(filename, old_word, new_word):
+    with open(filename, 'r') as file:
+        text = file.read()
+    new_text = text.replace(old_word, new_word)
+    with open(filename, 'w') as file:
+        file.write(new_text)
+
+# Test
+# find_and_replace('data.txt', 'old', 'new')
+### Assignment 7: Reading a File in Reverse
+
+Write a function that reads the contents of a file named `reverse.txt` and prints each line in reverse order.
+def read_reverse(filename):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+    for line in reversed(lines):
+        print(line.strip())
+
+# Test
+# read_reverse('reverse.txt')
+### Assignment 8: Counting Lines, Words, and Characters
+
+Write a function that reads the contents of a file named `stats.txt` and returns the number of lines, words, and characters in the file.
+def count_lwc(filename):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        words = sum(len(line.split()) for line in lines)
+        characters = sum(len(line) for line in lines)
+    return len(lines), words, characters
+
+# Test
+# print(count_lwc('stats.txt'))
+### Assignment 9: Merging Multiple Files
+
+Write a function that merges the contents of multiple files into a single file named `merged.txt`.
+def merge_files(file_list, output_file):
+    with open(output_file, 'w') as outfile:
+        for fname in file_list:
+            with open(fname, 'r') as infile:
+                outfile.write(infile.read() + '\n')
+
+# Test
+# merge_files(['file1.txt', 'file2.txt'], 'merged.txt')
+### Assignment 10: Splitting a Large File
+

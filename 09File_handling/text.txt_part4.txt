@@ -1,0 +1,58 @@
+
+def readFileContent(fileName):
+    with open(fileName ,'r') as file:
+        lines= file.readlines()
+        for line in reversed(lines):
+            print(line)
+
+
+readFileContent('sample.txt')
+
+# ### Assignment 8: Counting Lines, Words, and Characters
+
+# # Write a function that reads the contents of a file named `stats.txt` and returns the number of lines, words, and characters in the file.
+
+
+def read_content(file_name):
+    with open(file_name, 'r') as file_read:
+       lines = file_read.readline()
+       words = sum(len(line.split()) for line in lines)
+       char =  sum(len(line) for line in lines)
+
+    return len(lines), words, char
+
+print(read_content('sample.txt'))
+# ### Assignment 9: Merging Multiple Files
+
+# Write a function that merges the contents of multiple files into a single file named `merged.txt`.
+
+def merge_multi_file(merge_file_name , file_lst):
+    with open(merge_file_name , 'w') as write_line:
+        for fname in file_lst:
+            with open (fname) as read_line:
+                for line in read_line:
+                    write_line.write(line)
+
+
+merge_multi_file('log.txt', ['destination.txt', 'sample.txt'])
+# ### Assignment 10: Splitting a Large File
+
+# Write a function that splits a large file named `large.txt` into smaller files of 100 lines each.
+
+def Splitting_Large_File(largeFileName):
+    with open(largeFileName , 'r') as file:
+        lines = file.readlines()
+        filelenth = 100
+        new_file_name = "text.txt"
+        # total_file_needed = len(lines)/100
+        for line in range(0, len(lines), filelenth):
+            with open(f"{new_file_name}_part{line//filelenth + 1}.txt" ,'w') as write_file:
+                write_file.write(lines[line:line+filelenth])
+                # print(f"{fileNo} : {fileName}")
+                # with open(fileName , 'w') as file:
+
+
+Splitting_Large_File()
+        
+
+        
