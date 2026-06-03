@@ -1,0 +1,29 @@
+different ways to create virtual environment for PYTHON
+
+1 Using Python command 
+
+	command -: python -m venv {folder name like venv}
+	: python -m venv venv 
+	
+	How to activate virtual environment 
+	command :- foldername\script\activate
+	: venv\script\activate
+
+	To deactivate  : deactivate
+	
+2 Using PIP 
+	command :- pip install virtualenv
+	
+	command : virtualenv -p python3(version) virtual_env
+	
+	to activate : virtual_env\scripts\activate
+	to deactivate : deactivate
+	
+3 Using Anaconda (for that we must have anaconda install in machine)
+	command : conda create -p venv(folder name) python==3.10(python version)
+	
+	How to activate virtual environment 
+	command :- foldername\script\activate
+	: venv\script\activate
+	
+	
