@@ -1,6 +1,6 @@
 ipykernel
 numpy
-pandas
+    pandas
 
 bs4
 flask
