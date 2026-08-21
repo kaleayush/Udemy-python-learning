@@ -1,0 +1,4 @@
+## divide our dataset into dependent and independent features
+## divide our dataset into train and test 
+## standardize the train dataset
+## train the simple linear regression model using sklearn linear model 
